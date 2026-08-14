@@ -1,0 +1,13 @@
+# IDEA / Editor 环境配置
+.vs/
+.vscode/
+.idea/
+
+# 编译构建产物
+build/
+install/
+target/
+
+# Clangd 环境配置
+.clangd
+compile_flags.txt
