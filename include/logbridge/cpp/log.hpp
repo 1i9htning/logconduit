@@ -2,6 +2,7 @@
 
 #include "../core.h"
 #include "../detail/macro_utils.h"
+#include "binding.hpp"
 #include "log_impl.hpp"
 
 #define LOGBRIDGE_LOG(level, message)                                             \
@@ -18,5 +19,3 @@
 #define LOGBRIDGE_WARN(message) LOGBRIDGE_LOG(LOGBRIDGE_LEVEL_WARN, message)
 #define LOGBRIDGE_ERROR(message) LOGBRIDGE_LOG(LOGBRIDGE_LEVEL_ERROR, message)
 #define LOGBRIDGE_FATAL(message) LOGBRIDGE_LOG(LOGBRIDGE_LEVEL_FATAL, message)
-
-#define LOGBRIDGE_INIT(binding) logbridge_detail_initialize_binding((binding));
