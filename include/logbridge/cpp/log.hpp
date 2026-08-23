@@ -1,3 +1,12 @@
+/**
+ * @file log.hpp
+ * @brief LogBridge C++ 日志接口。
+ * @author Li9htning (Li9htning@hotmail.com)
+ * @copyright Copyright 2026 Li9htning.
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
 #pragma once
 
 #include "../core.h"
