@@ -1,6 +1,5 @@
 BasedOnStyle: Google
-ColumnLimit: 0       # Cancel limit
+ColumnLimit: 0
 
-# CPP
 Language: Cpp
 AccessModifierOffset: -2
