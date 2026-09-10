@@ -8,11 +8,11 @@
 
 #include "config.hpp"
 
-#if LOGBRIDGE_CPP_STANDARD >= 201703L
+#if LOGCONDUIT_CPP_STANDARD >= 201703L
 #include <string_view>
 #endif
 
-namespace logbridge {
+namespace logconduit {
 namespace detail {
 
 struct message_view {
@@ -31,7 +31,7 @@ struct message_traits;
 template <std::size_t N>
 struct message_traits<char[N]> {
   static message_view make(const char (&message)[N]) noexcept {
-    static_assert((N - 1) <= UINT32_MAX, "LogBridge message exceeds uint32_t length limit");
+    static_assert((N - 1) <= UINT32_MAX, "Logconduit message exceeds uint32_t length limit");
     return {
         message,
         static_cast<std::uint32_t>(N - 1),
@@ -46,7 +46,7 @@ struct message_traits<char[N]> {
 template <>
 struct message_traits<std::string> {
   static message_view make(const std::string& message) noexcept {
-    assert((message.size() <= std::numeric_limits<std::uint32_t>::max()) && "LogBridge message exceeds uint32_t length limit");
+    assert((message.size() <= std::numeric_limits<std::uint32_t>::max()) && "Logconduit message exceeds uint32_t length limit");
     return {
         message.data(),
         static_cast<std::uint32_t>(message.size()),
@@ -59,11 +59,11 @@ inline message_view make_message_view(const T& message) noexcept {
   return message_traits<T>::make(message);
 }
 
-#if LOGBRIDGE_CPP_STANDARD >= 201703L
+#if LOGCONDUIT_CPP_STANDARD >= 201703L
 template <>
 struct message_traits<std::string_view> {
   static message_view make(const std::string_view& message) noexcept {
-    assert(message.size() <= std::numeric_limits<std::uint32_t>::max() && "LogBridge message exceeds uint32_t length limit");
+    assert(message.size() <= std::numeric_limits<std::uint32_t>::max() && "Logconduit message exceeds uint32_t length limit");
     return {
         message.data(),
         static_cast<std::uint32_t>(message.size()),
@@ -73,4 +73,4 @@ struct message_traits<std::string_view> {
 #endif
 
 }  // namespace detail
-}  // namespace logbridge
+}  // namespace logconduit
