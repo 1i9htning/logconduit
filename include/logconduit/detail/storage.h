@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../core.h"
+#include "binding.h"
 #include "platform.h"
 
 /**
@@ -14,4 +14,11 @@ LOGCONDUIT_DETAIL_PER_DSO_STORAGE logconduit_logger_binding_t logconduit_detail_
 
 static inline const logconduit_logger_binding_t* logconduit_detail_logger_binding(void) {
   return &logconduit_detail_per_dso_logger_binding;
+}
+
+/**
+ * @brief 初始化 binding
+ */
+static inline void logconduit_detail_initialize_binding(logconduit_logger_binding_t binding) {
+  logconduit_detail_per_dso_logger_binding = binding;
 }

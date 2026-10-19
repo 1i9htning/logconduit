@@ -1,0 +1,39 @@
+#pragma once
+
+#include "@PUBLIC_HEADER@"
+
+/**
+ * @brief 布尔类型及常量映射
+ */
+typedef @TYPE_PREFIX@_bool_t logconduit_bool_t;
+
+#define LOGCONDUIT_TRUE @MACRO_PREFIX@_TRUE
+#define LOGCONDUIT_FALSE @MACRO_PREFIX@_FALSE
+
+/**
+ * @brief 日志等级及常量映射
+ */
+typedef @TYPE_PREFIX@_level_t logconduit_level_t;
+
+#define LOGCONDUIT_LEVEL_TRACE @MACRO_PREFIX@_LEVEL_TRACE
+#define LOGCONDUIT_LEVEL_DEBUG @MACRO_PREFIX@_LEVEL_DEBUG
+#define LOGCONDUIT_LEVEL_INFO @MACRO_PREFIX@_LEVEL_INFO
+#define LOGCONDUIT_LEVEL_WARN @MACRO_PREFIX@_LEVEL_WARN
+#define LOGCONDUIT_LEVEL_ERROR @MACRO_PREFIX@_LEVEL_ERROR
+#define LOGCONDUIT_LEVEL_FATAL @MACRO_PREFIX@_LEVEL_FATAL
+
+/**
+ * @brief Source location 类型别名
+ */
+typedef @TYPE_PREFIX@_source_location_t logconduit_source_location_t;
+
+/**
+ * @brief 回调类型别名
+ */
+typedef @TYPE_PREFIX@_enabled_callback_t logconduit_enabled_callback_t;
+typedef @TYPE_PREFIX@_log_callback_t logconduit_log_callback_t;
+
+/**
+ * @brief Logger binding 类型别名
+ */
+typedef @TYPE_PREFIX@_logger_binding_t logconduit_logger_binding_t;

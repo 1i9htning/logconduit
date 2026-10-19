@@ -1,0 +1,39 @@
+#include <stdint.h>
+
+/**
+ * @brief ABI 可靠的布尔值
+ */
+typedef uint32_t @TYPE_PREFIX@_bool_t;
+#define @MACRO_PREFIX@_TRUE ((@TYPE_PREFIX@_bool_t)1u)
+#define @MACRO_PREFIX@_FALSE ((@TYPE_PREFIX@_bool_t)0u)
+
+/**
+ * @brief 日志等级
+ */
+typedef uint32_t @TYPE_PREFIX@_level_t;
+#define @MACRO_PREFIX@_LEVEL_TRACE ((@TYPE_PREFIX@_level_t)100u)
+#define @MACRO_PREFIX@_LEVEL_DEBUG ((@TYPE_PREFIX@_level_t)200u)
+#define @MACRO_PREFIX@_LEVEL_INFO ((@TYPE_PREFIX@_level_t)300u)
+#define @MACRO_PREFIX@_LEVEL_WARN ((@TYPE_PREFIX@_level_t)400u)
+#define @MACRO_PREFIX@_LEVEL_ERROR ((@TYPE_PREFIX@_level_t)500u)
+#define @MACRO_PREFIX@_LEVEL_FATAL ((@TYPE_PREFIX@_level_t)600u)
+
+/**
+ * @brief 源码位置
+ */
+typedef struct @TYPE_PREFIX@_source_location {
+  const char* file_name;
+  const char* function_name;
+  uint32_t line;
+} @TYPE_PREFIX@_source_location_t;
+
+/**
+ * @brief 日志器绑定
+ */
+typedef @TYPE_PREFIX@_bool_t (*@TYPE_PREFIX@_enabled_callback_t)(void* context, @TYPE_PREFIX@_level_t level);
+typedef void (*@TYPE_PREFIX@_log_callback_t)(void* context, @TYPE_PREFIX@_level_t level, const @TYPE_PREFIX@_source_location_t* source, const char* message, uint32_t length);
+typedef struct @TYPE_PREFIX@_logger_binding {
+  void* context;
+  @TYPE_PREFIX@_enabled_callback_t enabled_callback;
+  @TYPE_PREFIX@_log_callback_t log_callback;
+} @TYPE_PREFIX@_logger_binding_t;

@@ -1,0 +1,50 @@
+CompileFlags:
+  CompilationDatabase: build/tests
+  Remove: [-x, '-std=*']
+  Add: [-xc++, -std=c++17]
+
+---
+
+# C sources, including unrendered templates.
+If:
+  PathMatch: '.*\.c(\.in)?'
+
+CompileFlags:
+  Remove: [-x, '-std=*']
+  Add: [-xc, -std=c99]
+
+---
+
+# C headers and generic C header templates; .cpp.h.in is a C++ header.
+If:
+  PathMatch:
+    - '.*\.h\.in'
+    - 'include/logconduit/(c|detail)/.*\.h'
+    - 'tests/library/protocol-config\.h'
+    - '(.*/)?src/[^/]+-protocol-config\.h'
+  PathExclude: '.*\.cpp\.h\.in'
+
+CompileFlags:
+  Remove: [-x, '-std=*']
+  Add: [-xc-header, -std=c99]
+
+---
+
+# C++ sources use the default above; C++ headers need header language mode.
+If:
+  PathMatch:
+    - '.*\.(hpp|hh|hxx)(\.in)?'
+    - '.*\.cpp\.h\.in'
+
+CompileFlags:
+  Remove: [-x, '-std=*']
+  Add: [-xc++-header, -std=c++17]
+
+---
+
+# Placeholders in unrendered C/C++ templates are not valid language syntax.
+If:
+  PathMatch: '.*\.(c|cpp|cc|cxx|h|hpp|hh|hxx)\.in'
+
+Diagnostics:
+  Suppress: '*'

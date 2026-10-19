@@ -7,7 +7,7 @@
 //  ███████████░░██████ ░░███████░░██████ ░░██████  ████ █████░░████████ ░░████████ █████  ░░█████
 // ░░░░░░░░░░░  ░░░░░░   ░░░░░███ ░░░░░░   ░░░░░░  ░░░░ ░░░░░  ░░░░░░░░   ░░░░░░░░ ░░░░░    ░░░░░
 //                       ███ ░███
-//                      ░░██████           Version: 0.1.0
+//                      ░░██████           Version: 0.2.0
 //                       ░░░░░░            Github : https://github.com/1i9htning/logconduit
 //
 // Copyright 2026 Li9htning (Li9htning@hotmail.com).
@@ -27,5 +27,4 @@
 
 #pragma once
 
-#include "binding.hpp"
 #include "macro.hpp"

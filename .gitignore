@@ -5,9 +5,6 @@
 
 # 编译构建产物
 build/
-install/
-target/
 
-# Clangd 环境配置
-.clangd
-compile_flags.txt
+# 源码生成
+src/

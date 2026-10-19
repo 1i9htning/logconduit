@@ -1,0 +1,7 @@
+#include "@PUBLIC_HEADER@"
+#include <logconduit/detail/storage.h>
+
+void @TYPE_PREFIX@_init_log(void* logger, @TYPE_PREFIX@_enabled_callback_t enabled_callback, @TYPE_PREFIX@_log_callback_t log_callback) {
+  logconduit_logger_binding_t binding = {logger, enabled_callback, log_callback};
+  logconduit_detail_initialize_binding(binding);
+}

@@ -1,0 +1,10 @@
+#include "@PUBLIC_HEADER@"
+#include <logconduit/detail/storage.h>
+
+namespace @TYPE_PREFIX@ {
+
+void adapter_detail::initializer::initialize_binding(@TYPE_PREFIX@_logger_binding_t binding) noexcept {
+  logconduit_detail_initialize_binding(binding);
+}
+
+}  // namespace @TYPE_PREFIX@

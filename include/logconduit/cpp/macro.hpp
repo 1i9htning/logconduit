@@ -1,25 +1,24 @@
 #pragma once
 
-#include "../core.h"
-#include "../detail/macro_utils.h"
+#include "../detail/macro-utils.h"
 #include "../detail/storage.h"
-#include "detail/message_view.hpp"
+#include "detail/message-view.hpp"
 
-#define LOGCONDUIT_LOG_IMPL(local_binding_variable_name,                                                                                                                                    \
-                            local_level_variable_name,                                                                                                                                      \
-                            local_source_variable_name,                                                                                                                                     \
-                            local_message_variable_name,                                                                                                                                    \
-                            message_view_variable_name,                                                                                                                                     \
-                            level, message)                                                                                                                                                 \
-  do {                                                                                                                                                                                      \
-    const logconduit_logger_binding_t* local_binding_variable_name = logconduit_detail_logger_binding();                                                                                    \
-    logconduit_level_t local_level_variable_name = (level);                                                                                                                                 \
-    if (logconduit_binding_is_enabled(local_binding_variable_name, local_level_variable_name) == LOGCONDUIT_TRUE) {                                                                         \
-      const auto& local_message_variable_name = (message);                                                                                                                                  \
-      auto message_view_variable_name = logconduit::detail::make_message_view(local_message_variable_name);                                                                                 \
-      logconduit_source_location_t local_source_variable_name = {__FILE__, __func__, __LINE__};                                                                                             \
-      logconduit_binding_emit(local_binding_variable_name, local_level_variable_name, &local_source_variable_name, (message_view_variable_name.data), (message_view_variable_name.length)); \
-    }                                                                                                                                                                                       \
+#define LOGCONDUIT_LOG_IMPL(local_binding_variable_name,                                                                                                                                           \
+                            local_level_variable_name,                                                                                                                                             \
+                            local_source_variable_name,                                                                                                                                            \
+                            local_message_variable_name,                                                                                                                                           \
+                            message_view_variable_name,                                                                                                                                            \
+                            level, message)                                                                                                                                                        \
+  do {                                                                                                                                                                                             \
+    const logconduit_logger_binding_t* local_binding_variable_name = logconduit_detail_logger_binding();                                                                                           \
+    logconduit_level_t local_level_variable_name = (level);                                                                                                                                        \
+    if (logconduit_detail_binding_is_enabled(local_binding_variable_name, local_level_variable_name) == LOGCONDUIT_TRUE) {                                                                         \
+      const auto& local_message_variable_name = (message);                                                                                                                                         \
+      auto message_view_variable_name = logconduit::detail::make_message_view(local_message_variable_name);                                                                                        \
+      logconduit_source_location_t local_source_variable_name = {__FILE__, __func__, __LINE__};                                                                                                    \
+      logconduit_detail_binding_emit(local_binding_variable_name, local_level_variable_name, &local_source_variable_name, (message_view_variable_name.data), (message_view_variable_name.length)); \
+    }                                                                                                                                                                                              \
   } while (0)
 
 #define LOGCONDUIT_LOG(level, message)                                               \

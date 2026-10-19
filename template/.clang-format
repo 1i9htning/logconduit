@@ -1,0 +1,3 @@
+BasedOnStyle: InheritParentConfig
+
+OneLineFormatOffRegex: '^(@|cmakedefine(01)?)$'

@@ -1,0 +1,10 @@
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+__attribute__((visibility("default")))
+void @TYPE_PREFIX@_init_log(void* logger, @TYPE_PREFIX@_enabled_callback_t enabled, @TYPE_PREFIX@_log_callback_t callback);
+
+#ifdef __cplusplus
+}
+#endif
