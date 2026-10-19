@@ -1,5 +1,7 @@
 ![Logo](./logo.svg)
 
+简体中文 | [English](./README.en.md)
+
 面向 C/C++ 动态库的轻量日志桥接 SDK，将库内部日志转发给宿主 Logger。它不是日志框架，不负责输出、格式化、异步线程、轮转或 Logger 管理。
 
 目前支持 C99 / C++11 及以上，GCC / Clang + ELF。
